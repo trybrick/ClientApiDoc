@@ -1,4 +1,4 @@
-GSN RESTful API Specification and Examples
+GSN API Specification and Examples
 ============
 
 #[Wiki](https://github.com/gsn/ClientApiDoc/wiki)
