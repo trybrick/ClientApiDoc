@@ -1,0 +1,64 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+<script type="text/javascript">
+var tokenData;
+function setHeader(xhr) {
+  xhr.setRequestHeader("site_id", "218");
+  xhr.setRequestHeader("access_token", tokenData.access_token);
+}
+  
+function getAndDisplayUserInfo() {
+  $.ajax({
+    url: 'https://clientapix.gsn2.com/api/v1/profile/By/' + tokenData.user_id,
+    type: 'GET',
+    dataType: 'json',
+    success: function(data) { 
+      $('.user-info').html('Welcome ' + data.FirstName + ' ' + data.LastName + '!');
+    },
+    error: function (xhr, status, error) { 
+      $('.user-info').html('Error retrieving user info.'); 
+    },
+    beforeSend: setHeader
+  });
+}
+
+function doLogin() {
+  var user = $('.input-user').val();
+  var pass = $('.input-pass').val();
+  var payload = {
+                    grant_type: "password",
+                    client_id: 218,
+                    username: user,
+                    password: pass,
+                    access_type: 'offline'
+                };
+	$.ajax({ 
+    type: "POST",
+    data: payload,
+    url: "https://clientapix.gsn2.com/api/v1/auth/Token",
+    dataType: 'json',
+    success: function (response) {
+      tokenData = response;
+
+      if (response.access_token) {
+        getAndDisplayUserInfo();
+      }
+    },
+    error: function (xhr, status, error) {              
+      alert(status);
+    }});
+}
+</script>
+</head>
+<body>
+  <br/>
+  <form onsubmit="return false;">
+    User: <input name="user" class='input-user' /><br/>
+    Pass: <input name="pass" class='input-pass' type='password' /><br/>
+    <button onclick="doLogin()">Login</button><br/>
+  </form>
+  <br />
+  <div class="user-info"></div>
+</body>
+</html>
