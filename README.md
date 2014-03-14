@@ -1,7 +1,7 @@
 GSN v1.0 RESTful API Specification
 ============
 
-#Introduction
+#[Introduction](https://github.com/gsn/ClientApiDoc/tree/master/Introduction)
 The GSN Web Service API system makes it easy for Retailer, CPG, and Affiliates
 to better integrate with GSN. This specification document
 describes how these companies (hereafter “retailers”) can use GSN's RESTful Web Services API to
@@ -11,28 +11,25 @@ basic understanding of web technologies and protocols.
 The API’s various requests are arranged into general workflows that a Retailer's client application will use
 when interacting with the API.
 
-- Implementation
-- Assumptions
+- [Implementation](https://github.com/gsn/ClientApiDoc/tree/master/Introduction#Implementation)
+- [Assumptions](https://github.com/gsn/ClientApiDoc/tree/master/Introduction#Assumptions)
 
-#Authentication
+#[Authentication](https://github.com/gsn/ClientApiDoc/tree/master/Authentication)
 - Generate Access Token
 - Refresh Access Token
 
-Profile Resource
-============
+#[Profile](https://github.com/gsn/ClientApiDoc/tree/master/Profile)
 - List Profile
 - Get Profile by Id
 - Update Profile
 - Register a user
 - Register with facebook
 
-ShoppingList Resource
-============
+#[ShoppingList](https://github.com/gsn/ClientApiDoc/tree/master/ShoppingList)
 - Create new list
 - Update existing list
 - Create or Update item on current list
 
-Store Resource
-============
+#[Store](https://github.com/gsn/ClientApiDoc/tree/master/ShoppingList)
 - List stores by banner
 - Get store content
