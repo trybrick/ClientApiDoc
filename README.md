@@ -33,3 +33,5 @@ when interacting with the API.
 #[Store](https://github.com/gsn/ClientApiDoc/tree/master/ShoppingList)
 - List stores by banner
 - Get store content
+
+#[Supplement/Extended Documentation](https://clientapi.gsn2.com/Help)
