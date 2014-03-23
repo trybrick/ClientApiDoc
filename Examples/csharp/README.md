@@ -9,19 +9,21 @@ You can use your own REST client such as RestSharp or just use HttpClient as in 
   // GsnClientSecret: client_secret
   var clientId = ConfigurationManager.AppSettings["GsnClienId"];
   var apiClient = new GsnApiClient(
-          ConfigurationManager.AppSettings["GsnBaseUrl"], clientId , ConfigurationManager.AppSettings["GsnClientSecret"]);
+          ConfigurationManager.AppSettings["GsnBaseUrl"], 
+          clientId , 
+          ConfigurationManager.AppSettings["GsnClientSecret"]);
           
   // example retrieving stores
-  List<dynamic> stores = apiClient.GetContent<List<dynamic>>("/store/List/" + clientId, new Dictionary<string, string>());
+  List<dynamic> stores = apiClient.GetContent<List<dynamic>>("/store/List/" + clientId, 
+          new Dictionary<string, string>());
   
   // example retrieving profile
   var profile = apiClient.GetContent<dynamic>("/profile/By/" + someProfileId,
-              new Dictionary<string, string>() { { "site_id", clientId } });
+          new Dictionary<string, string>() { { "site_id", clientId } });
               
   // Example on posting data
   var result = apiClient.GetPostContent<dynamic>("/profile/Update", 
-                        new Dictionary<string, string>() { { "FirstName", "Tom" }, { "LastName", "Test" }, etc ... },
-                        new Dictionary<string, string>() { { "site_id", clientId }, { "profile_id", someProfileId } }
-                        )
+          new Dictionary<string, string>() { { "FirstName", "Tom" }, { "LastName", "Test" }, etc ... },
+          new Dictionary<string, string>() { { "site_id", clientId }, { "profile_id", someProfileId } });
   
 ````
