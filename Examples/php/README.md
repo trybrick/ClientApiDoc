@@ -1,27 +1,29 @@
-Examples in C#
+Examples in PHP
 ==============
 
-You can use your own REST client such as RestSharp or just use HttpClient as in example below.
+PHP, being an extremely flexible and feature-rich language, provides a number of different mechanisms you can choose from to make your REST requests. The ones we recommend are:
 
-```csharp
-  // GsnBaseUrl: https://clientapi.gsn2.com/api/v1
-  // GsnClienId: client_id
-  // GsnClientSecret: client_secret
-  var clientId = ConfigurationManager.AppSettings["GsnClienId"];
-  var apiClient = new GsnApiClient(
-          ConfigurationManager.AppSettings["GsnBaseUrl"], clientId , ConfigurationManager.AppSettings["GsnClientSecret"]);
-          
-  // example retrieving stores
-  List<dynamic> stores = apiClient.GetContent<List<dynamic>>("/store/List/" + clientId, new Dictionary<string, string>());
-  
-  // example retrieving profile
-  var profile = apiClient.GetContent<dynamic>("/profile/By/" + someProfileId,
-              new Dictionary<string, string>() { { "site_id", clientId } });
-              
-  // Example on posting data
-  var result = apiClient.GetPostContent<dynamic>("/profile/Update", 
-                        new Dictionary<string, string>() { { "FirstName", "Tom" }, { "LastName", "Test" }, etc ... },
-                        new Dictionary<string, string>() { { "site_id", clientId }, { "profile_id", someProfileId } }
-                        )
-  
-````
+- [cURL](http://php.net/manual/en/book.curl.php)
+- [file_get_contents](http://php.net/manual/en/function.file-get-contents.php)
+
+Depending on your web server configuration either one of these functions may be more desirable.
+
+JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is like XML, but without the markup around the actual payload.
+
+The [json_decode](http://php.net/manual/en/function.json-decode.php) function takes a JSON encoded string and converts it into a PHP variable.
+
+Example retrieving profile
+
+```php
+include 'gsnutil.php'; 
+
+```
+
+Example updating profile
+
+
+```php
+include 'gsnutil.php'; 
+
+```
+
