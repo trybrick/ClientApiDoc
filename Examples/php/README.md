@@ -15,7 +15,7 @@ The [json_decode](http://php.net/manual/en/function.json-decode.php) function ta
 Example retrieving profile
 
 ```php
-include 'gsnutil.php'; 
+include 'gsnapiclient.php'; 
 
 ```
 
@@ -23,7 +23,7 @@ Example updating profile
 
 
 ```php
-include 'gsnutil.php'; 
+include 'gsnapiclient.php'; 
 
 ```
 
