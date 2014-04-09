@@ -94,7 +94,7 @@ namespace Gsn.Digital.Web.Infrastructure
           {
             if (this.Token == null || (DateTime.Now > this.Token.ExpireDate))
             {
-              var result = client.PostAsync(this.basePath + "/auth/token", content).Result;
+              var result = client.PostAsync(this.basePath + "/auth/token2", content).Result;
 
               // TODO: handle error from authentication
               // something went wrong?  server is down? send out email?
