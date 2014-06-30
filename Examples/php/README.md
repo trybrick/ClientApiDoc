@@ -15,6 +15,7 @@ The [json_decode](http://php.net/manual/en/function.json-decode.php) function ta
 Examples
 
 ```php
+<?php
   include 'gsnapiclient.php'; 
   $base_api_url = "https://clientapi.gsn2.com/api/v1";
   $client_id = "123";
@@ -31,6 +32,7 @@ Examples
   // update profile
   $profile->FirstName = "Tom";
   $stores = $apiClient->api("/profile/update", get_object_vars($profile), array("site_id: ".$client_id));
+?>
 ```
 
 
