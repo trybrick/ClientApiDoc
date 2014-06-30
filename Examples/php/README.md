@@ -15,18 +15,18 @@ The [json_decode](http://php.net/manual/en/function.json-decode.php) function ta
 Examples
 
 ```php
-include 'gsnapiclient.php'; 
-  $base_api_url = "http://clientapi.gsn2.com/api/v1";
+  include 'gsnapiclient.php'; 
+  $base_api_url = "https://clientapi.gsn2.com/api/v1";
   $client_id = "123";
   $client_secret = "";
-	$apiClient = new GsnApiClient($base_api_url, $client_id, $client_secret);
-	$apiClient->authenticate();
+  $apiClient = new GsnApiClient($base_api_url, $client_id, $client_secret);
+  $apiClient->authenticate();
 	
-	// list stores
-	$stores = $apiClient->api("/store/list/".$client_id);
+  // list stores
+  $stores = $apiClient->api("/store/list/".$client_id);
 	
-	// retrieve profile
-	$profile = $apiClient->api("/profile/by", false, array("site_id: ".$client_id));
+  // retrieve profile
+  $profile = $apiClient->api("/profile/by", false, array("site_id: ".$client_id));
 	
   // update profile
   $profile->FirstName = "Tom";
