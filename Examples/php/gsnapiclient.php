@@ -10,7 +10,7 @@ class GsnApiClient
 {
 	public $api_base_url     = "";
 	public $token_url        = "";
-  public $token_info_url   = "";
+        public $token_info_url   = "";
 
 	public $client_id        = "" ;
 	public $client_secret    = "" ;
@@ -29,7 +29,7 @@ class GsnApiClient
 	public $curl_ssl_verifypeer      = false;
 	public $curl_useragent           = "Gsn Simple PHP Api Client v0.1";
 	public $curl_authenticate_method = "POST";
-  public $curl_proxy               = null;
+        public $curl_proxy               = null;
 
 	//--
 
@@ -40,10 +40,10 @@ class GsnApiClient
 
 	public function __construct( $api_base_url = "", $client_id = false, $client_secret = false)
 	{
-    $this->api_base_url  = rtrim($api_base_url, "/");
+                $this->api_base_url  = rtrim($api_base_url, "/");
 		$this->client_id     = $client_id;
 		$this->client_secret = $client_secret;
-    $this->token_url     = $api_base_url + "/auth/Token2";    
+                $this->token_url     = $api_base_url + "/auth/Token2";    
 	}
 
 	public function authenticate()
@@ -94,18 +94,18 @@ class GsnApiClient
 					$this->access_token = $response->access_token; 
 				}
 			}
-      // expired?
-      else if( $this->api->access_token_expires_at <= time() ){
-        $response = $this->refreshToken( $this->refresh_token ); 
+                        // expired?
+                        else if( $this->api->access_token_expires_at <= time() ){
+                                $response = $this->refreshToken( $this->refresh_token ); 
 
-        // if wrong response
-        if( ! isset( $response->access_token ) || ! $response->access_token ){
-          throw new Exception( "The Authorization Service has return an invalid response while requesting a new access token. given up!" ); 
-        }
-
-        // set new access_token
-        $this->access_token = $response->access_token; 
-      }      
+                                // if wrong response
+                               if( ! isset( $response->access_token ) || ! $response->access_token ){
+                                        throw new Exception( "The Authorization Service has return an invalid response while requesting a new access token. given up!" ); 
+                               }
+   
+                               // set new access_token
+                               $this->access_token = $response->access_token; 
+                        }      
 
 			return true;
 		}
@@ -118,6 +118,8 @@ class GsnApiClient
 	*/
 	public function api( $url, $method = "GET", $parameters = array(), $headers = array() ) 
 	{
+		if (!$this->authenticated()) return null;
+		
 		if ( strrpos($url, 'http://') !== 0 && strrpos($url, 'https://') !== 0 ) {
 			$url = $this->api_base_url . $url;
 		}
@@ -230,3 +232,5 @@ class GsnApiClient
 		return $result;
 	}
 }
+
+?>
