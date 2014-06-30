@@ -31,7 +31,7 @@ Examples
 	
   // update profile
   $profile->FirstName = "Tom";
-  $stores = $apiClient->api("/profile/update", get_object_vars($profile), array("site_id: ".$client_id));
+  $updatedProfile = $apiClient->api("/profile/update", get_object_vars($profile), array("site_id: ".$client_id));
 ?>
 ```
 
