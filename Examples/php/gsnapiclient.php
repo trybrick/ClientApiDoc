@@ -1,4 +1,4 @@
-	<?php
+<?php
 	/*!
 	* GsnApiClient
 	* https://github.com/gsn/ClientApiDoc/tree/master/Examples/php
