@@ -27,11 +27,11 @@ Examples
   $stores = $apiClient->api("/store/list/".$client_id);
 	
   // retrieve profile
-  $profile = $apiClient->api("/profile/by", false, array("site_id: ".$client_id));
+  $profile = $apiClient->api("/profile/by", "GET", false, array("site_id: ".$client_id));
 	
   // update profile
   $profile->FirstName = "Tom";
-  $updatedProfile = $apiClient->api("/profile/update", get_object_vars($profile), array("site_id: ".$client_id));
+  $updatedProfile = $apiClient->api("/profile/update", "POST", get_object_vars($profile), array("site_id: ".$client_id));
 ?>
 ```
 
