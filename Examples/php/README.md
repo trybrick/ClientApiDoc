@@ -12,18 +12,25 @@ JSON (JavaScript Object Notation) is a lightweight data-interchange format. It i
 
 The [json_decode](http://php.net/manual/en/function.json-decode.php) function takes a JSON encoded string and converts it into a PHP variable.
 
-Example retrieving profile
+Examples
 
 ```php
 include 'gsnapiclient.php'; 
-
+  $base_api_url = "http://clientapi.gsn2.com/api/v1";
+  $client_id = "123";
+  $client_secret = "";
+	$apiClient = new GsnApiClient($base_api_url, $client_id, $client_secret);
+	$apiClient->authenticate();
+	
+	// list stores
+	$stores = $apiClient->api("/store/list/".$client_id);
+	
+	// retrieve profile
+	$profile = $apiClient->api("/profile/by", false, array("site_id: ".$client_id));
+	
+  // update profile
+  $profile->FirstName = "Tom";
+  $stores = $apiClient->api("/profile/update", get_object_vars($profile), array("site_id: ".$client_id));
 ```
 
-Example updating profile
-
-
-```php
-include 'gsnapiclient.php'; 
-
-```
 
