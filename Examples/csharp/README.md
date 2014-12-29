@@ -31,12 +31,13 @@ You can use your own REST client such as RestSharp or just use HttpClient as in 
 Note
 =====
 
-There are quirky issues with the provided generic GetContent<T> or PostContent<T> method.  It doesn't perform json serialization very well on Strongly Typed object or enumerable such as list or array.  This is to be expected because default .NET Json handling is not very good.  You should use something like Json.NET JsonConvert to deserialize these objects as seen in the example below:
+There are quirky issues with the provided generic GetContent<T> or PostContent<T> method.  It doesn't perform json serialization very well on Strongly Typed object or enumerable such as list or array.  This is to be expected because default .NET Json handling is not very good.  You should use something like Json.NET JsonConvert to deserialize these objects as demonstrated in the example below:
 
 
 ```csharp  
   // Example on posting data
-  var data = gsnApi.DoGet("/profile/By/" + someProfileId, new Dictionary<string, string>() { { "site_id", clientId } });
+  var data = gsnApi.DoGet("/profile/By/" + someProfileId,
+          new Dictionary<string, string>() { { "site_id", clientId } });
   var content = data.Content.ReadAsStringAsync();
   return JsonConvert.DeserializeObject<Profile>(content.Result);  
 ````
