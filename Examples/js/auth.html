@@ -5,9 +5,10 @@
 function doLogin() {
   var user = $('.input-user').val();
   var pass = $('.input-pass').val();
+  var clientId = $('.input-siteid').val();
   var payload = {
                     grant_type: "password",
-                    client_id: 52,
+                    client_id: clientId,
                     username: user,
                     password: pass,
                     access_type: 'offline'
@@ -36,6 +37,7 @@ function doLogin() {
 <body>
   <br/>
   <form onsubmit="return false;">
+  SiteId: <input name="clientid" class='input-clientid' value='215' /><br/>
   User: <input name="user" class='input-user' /><br/>
   Pass: <input name="pass" class='input-pass' type='password' /><br/>
   <button onclick="doLogin()">Login</button><br/>
